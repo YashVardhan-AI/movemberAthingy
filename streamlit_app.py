@@ -21,7 +21,7 @@ if page == 'Welcome':
 elif page == 'xray':
     content = st.sidebar.file_uploader("upload a xray image of your lung", type=['png', 'jpg', 'jpeg'])
     if content is not None:
-        image = Image.open(content)
+        image = Image.open(content).convert('RGB')
         pred= xrayutils.prediction(image)
         st.image(image, width=600)
         st.warning("the prediction is: " + pred)
@@ -31,7 +31,7 @@ elif page == 'xray':
 elif page == 'ctscan':
     content = st.sidebar.file_uploader("upload a ctscan image of your chest", type=['png', 'jpg', 'jpeg'])
     if content is not None:
-        image = Image.open(content)
+        image = Image.open(content).convert('RGB')
         pred= ctscanutils.prediction(image)
         st.image(image, width=600)
         st.warning("the prediction is: " + pred)

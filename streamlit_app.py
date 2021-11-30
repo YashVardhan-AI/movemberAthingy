@@ -25,6 +25,8 @@ elif page == 'xray':
         pred= xrayutils.prediction(image)
         st.image(image, width=600)
         st.warning("the prediction is: " + pred)
+        if pred == "NORMAL":
+            st.balloons()
     else:
         st.warning("please upload a xray image of your lung")
 
@@ -35,6 +37,8 @@ elif page == 'ctscan':
         pred= ctscanutils.prediction(image)
         st.image(image, width=600)
         st.warning("the prediction is: " + pred)
+        if pred == "NORMAL":
+            st.balloons()
         
     else:
         st.warning("please upload a ctscan image of your chest")
